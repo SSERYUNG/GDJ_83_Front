@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" value="1" name="ch" id="checkAll">
+
+    <input type="checkbox" value="1" name="ch" class="exp">
+    <input type="checkbox" value="2" name="ch" class="exp">
+    <input type="checkbox" value="3" name="ch" class="exp">
+    <input type="checkbox" value="4" name="ch" class="exp">
+    <button onclick="cal()">CLICK</button>
+
+    <script>
+        const checkAll=document.getElementById("checkAll");
+        const exp=document.getElementsByClassName("exp");
+
+        function cal(){
+            
+            if(checkAll.checked){
+                for(i=0;i<exp.length;i++){
+                    exp[i].checked=true
+                }
+            }else{
+                for(i=0;i<exp.length;i++){
+                    exp[i].checked=false;
+            }
+           
+            }
+            
+        }
+        
+        
+
+    </script>
+</body>
+</html>

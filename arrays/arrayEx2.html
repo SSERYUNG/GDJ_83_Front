@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="/images/flo1.jpg" alt="" id="flower">
+    </div>
+    <button onclick=change()>Next</button>
+
+    <script>
+
+        const flower=document.getElementById("flower");
+        let ar=["flo1","flo2","flo3","flo4","flo5"];
+        let i=0;
+
+        function change(){
+            i++;
+            if(i<5){
+                flower.src="/images/"+ar[i]+".jpg"
+            }else{
+                alert("마지막 이미지입니다")
+                flower.src="/images/"+ar[0]+".jpg"
+            }
+        }
+        
+
+    </script>
+
+</body>
+</html>
