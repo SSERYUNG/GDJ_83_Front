@@ -16,34 +16,19 @@
         const ar=['바나나','수박','참외','사과','망고'];
         const result=document.getElementById("result");
 
-        for(i=0;i<ar.length;i++){
-
-            // input 태그를 만든다
-            let p=document.createElement("input");
+        for(let i=0;i<ar.length;i++){
+            //div
+            let d = document.createElement("div");
+            //input checkbox
+            let input = document.createElement("input")
+            input.type="checkbox";
 
             
-            // 한줄 밑으로 보내는 br 태그를 만든다
-            let b=document.createElement("br");
-    
-    
-            // type 속성을 만든다
-            let t=document.createAttribute("type");
-    
-            // type 속성의 값에 checkbox를 넣는다
-            t.value="checkbox"
-    
-            // input 태그에 type 속성을 집어넣는다
-    
-            p.setAttributeNode(t);
-    
-            // checkbox 속성을 가진 input 태그를 div 태그 사이에 집어넣는다
-    
-            result.append(p, ar[i], b);
+            d.appendChild(input);
+            d.append(ar[i])
+
+            result.append(d);
         }
-
-        
-
-        // 이 input태그 옆에 ar[0]을 넣어본다
 
 
 
