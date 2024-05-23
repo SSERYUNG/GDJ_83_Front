@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .c2 {
+            border: 2px solid red;
+            margin: 2px;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <input type="text" class="c1">
+    </div>
+
+    <div>
+        <input type="text" class="c1">
+    </div>
+
+    <div>
+        <input type="text" class="c1">
+    </div>
+
+    <div>
+        <input type="text" class="c1">
+    </div>
+
+    <div>
+        <button onclick="box()">CLICK</button>
+    </div>
+
+    <script>
+
+        const c1=document.getElementsByClassName("c1");
+        
+        
+        function box(){
+
+            
+
+            for(let i=0;i<c1.length;i++){
+            
+                if(c1[i].value==""){
+                c1[i].classList.add("c2");
+            }else{
+                c1[i].classList.remove("c2");
+            }
+        }
+
+            }
+
+
+        
+
+
+    </script>
+
+    </body>
+</html>
