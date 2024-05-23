@@ -37,7 +37,29 @@
         //         exp[i].checked=checkAll.checked;
         //     }
         
+
         
+        for(let i=0;i<exp.length;i++){
+            exp[i].addEventListener("click", function(){
+                
+                let flag=true;
+
+                
+                for(let j=0;j<exp.length;j++){
+                    if(!exp[j].checked){
+                        flag=false;
+                        break;
+                    }
+                }
+
+                
+                checkAll.checked=flag;
+                
+            })
+        }
+                
+
+
 
     </script>
 </body>
