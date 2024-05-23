@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="checkbox" value="1" name="ch" id="checkAll">
+    <input onclick="cal()" type="checkbox" value="1" name="ch" id="checkAll">
 
     <input type="checkbox" value="1" name="ch" class="exp">
     <input type="checkbox" value="2" name="ch" class="exp">
@@ -22,7 +22,7 @@
             
             if(checkAll.checked){
                 for(i=0;i<exp.length;i++){
-                    exp[i].checked=true
+                    exp[i].checked=true;
                 }
             }else{
                 for(i=0;i<exp.length;i++){
@@ -32,6 +32,10 @@
             }
             
         }
+        // 이것도 정답이 될 수 있음(if else 쓰지 않고 코드를 최대한 효율적으로 줄인것)
+        // for(i=0;i<exp.length;i++){
+        //         exp[i].checked=checkAll.checked;
+        //     }
         
         
 
