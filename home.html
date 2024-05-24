@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div>
+        <!-- 할 일 적고 버튼을 클릭하면 등록 -->
+        <input type="text" id="put">
+        <button id="btn">Add</button>
+    </div>
+
+    <div id="big">
+        <div>
+            <button>휴지통</button>
+        </div>
+
+    </div>
+
+    <script>
+        const put = document.getElementById("put");
+        const btn = document.getElementById("btn");
+        const big = document.getElementById("big");
+
+        // Add 버튼을 눌렀을 때 목록이 추가 되는 기능
+        btn.addEventListener("click",function(){
+
+            let bb = document.createElement("input");
+            bb.type="checkbox";
+            bb.classList.add("ch")
+
+            let cc = document.createElement("span")
+            cc.append(put.value);
+
+            let inbig = document.createElement("div")
+
+            big.append(inbig);
+            inbig.append(bb,cc);
+
+        })
+
+        const ch = document.getElementsByClassName("ch")
+        
+
+        
+
+    </script>
+
+</body>
+</html>
+
+
+<!-- <style>
+span {
+            text-decoration: line-through;
+        }
+
+    </style> -->
+
+<!-- <div>
+    <input type="checkbox" chekced>
+    <span>게임하기</span>
+</div> --> 
