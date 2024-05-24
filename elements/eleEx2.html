@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <!-- 전체선택 체크박스-->
+        <input type="checkbox" id="checkall">
+        <button id="eraser">Dlete</button>
+    </div>
+    
+    <div class="pou" id="result1">
+        <input type="checkbox" class="silver" data-del-num="result1">
+        <span>mail title1</span>
+    </div>
+
+    <div class="pou" id="result2">
+        <input type="checkbox" class="silver" data-del-num="result2">
+        <span>mail title2</span>
+    </div>
+
+    <div class="pou" id="result3">
+        <input type="checkbox" class="silver" data-del-num="result3">
+        <span>mail title3</span>
+    </div>
+
+    <div class="pou" id="result4">
+        <input type="checkbox" class="silver" data-del-num="result4">
+        <span>mail title4</span>
+    </div>
+
+    <div class="pou" id="result5">
+        <input type="checkbox" class="silver" data-del-num="result5">
+        <span>mail title5</span>
+    </div>
+
+    <script>
+
+        const checkall=document.getElementById("checkall");
+        const silver=document.getElementsByClassName("silver");
+        const eraser=document.getElementById("eraser");
+        const pou=document.getElementsByClassName("pou");
+
+        
+        // 전체선택과 전체해제 기능 시작
+        checkall.addEventListener("click",function(){
+            if(checkall.checked){
+                for(let i=0;i<silver.length;i++){
+                silver[i].checked=true;
+            }
+        }else{
+            for(let i=0;i<silver.length;i++){
+                silver[i].checked=false;
+            }
+        }
+            
+        })
+        // 전체선택과 전체해제 기능 끝
+
+
+        // 메일 타이틀 체크 여부에 따른 전체선택과 해제 기능 시작
+        for(let j=0;j<silver.length;j++){
+            silver[j].addEventListener("click",function(){
+            let flag=true;
+            for(let h=0;h<silver.length;h++){
+                if(!silver[h].checked){
+                    flag=false;
+                    break;
+                }
+            }
+            checkall.checked=flag;
+        })
+        }
+        // 메일 타이틀 체크 여부에 따른 전체선택과 해제 기능 끝
+
+
+        // 체크 된 메일 타이틀을 딜리트 버튼 클릭시 지우는 기능 시작
+
+        eraser.addEventListener("click",function(){
+            let ar=[];
+            for(let i=0;i<silver.length;i++){
+                if(silver[i].checked){
+                    // document.getElementById(silver[i].getAttribute("data-del-num")).remove();
+                    ar.push(silver[i].getAttribute("data-del-num"))
+                }
+            }
+            for(let i=0;i<ar.length;i++){
+                document.getElementById(ar[i]).remove();
+            }
+        })
+
+    </script>
+
+</body>
+</html>
