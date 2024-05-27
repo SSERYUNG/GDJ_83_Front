@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <style>
+.line {
+        text-decoration: line-through;
+        }
+
+    </style>
+
 </head>
 <body>
     <div>
@@ -15,7 +22,7 @@
 
     <div id="big">
         <div>
-            <button>휴지통</button>
+            <button id="minus">휴지통</button>
         </div>
 
     </div>
@@ -30,19 +37,65 @@
 
             let bb = document.createElement("input");
             bb.type="checkbox";
-            bb.classList.add("ch")
+            bb.classList.add("ch");
 
             let cc = document.createElement("span")
             cc.append(put.value);
+            cc.classList.add("yy")
 
             let inbig = document.createElement("div")
+            inbig.classList.add("zz")
 
-            big.append(inbig);
             inbig.append(bb,cc);
+            big.append(inbig);
+            
 
         })
 
+        // 체크 하면 목록에 선 그어지는 기능
         const ch = document.getElementsByClassName("ch")
+        const yy = document.getElementsByClassName("yy")
+        const zz = document.getElementsByClassName("zz")
+        big.addEventListener("click",function(e){
+            for(let i=0;i<ch.length;i++){
+                if(e.target.classList.contains("ch")&&ch[i].checked){
+                yy[i].classList.add("line")
+
+                for(let j=0;j<ch.length;j++){
+                    ch[j].setAttribute("dda", "dda"+j)
+                    zz[j].setAttribute("id", "dda"+j)
+                }
+
+
+
+            }   else if(e.target.classList.contains("ch")&&!ch[i].checked)
+            {
+                yy[i].classList.remove("line")
+            }
+            }
+        })
+
+        
+
+
+        const minus = document.getElementById("minus")
+        minus.addEventListener("click", function(){
+            
+            let ar=[];
+
+            for(let p=0;p<ch.length;p++){
+                if(ch[p].checked){
+                    ar.push(ch[p].getAttribute("dda"))
+                }
+            }
+
+
+            for(let t=0;t<ar.length;t++){
+                document.getElementById(ar[t]).remove();
+            }
+        })
+
+
         
 
         
@@ -51,16 +104,3 @@
 
 </body>
 </html>
-
-
-<!-- <style>
-span {
-            text-decoration: line-through;
-        }
-
-    </style> -->
-
-<!-- <div>
-    <input type="checkbox" chekced>
-    <span>게임하기</span>
-</div> --> 
